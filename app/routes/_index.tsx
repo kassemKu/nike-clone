@@ -1,41 +1,48 @@
 import type { MetaFunction } from "@remix-run/node";
-
+import { Link } from "@remix-run/react";
+import {
+  CustomerReviews,
+  Footer,
+  Hero,
+  PopularProducts,
+  Services,
+  SpecialOffer,
+  Subscribe,
+  SuperQuality,
+} from "../sections";
+import Nav from "../Components/Nav";
 export const meta: MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
+  return [{ title: "Nike" }];
 };
 
-export default function Index() {
-  return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
-    </div>
-  );
-}
+const App = () => (
+  <main className="relative">
+    <Nav />
+    <section className="sm:pl-16 pl-8 wide:sm:pr-16 pr-8 sm:pb-24 pb-12">
+      <Hero />
+    </section>
+    <section className="sm:px-16 px-8 sm:py-24 py-12">
+      <PopularProducts />
+    </section>
+    <section className="sm:px-16 px-8 sm:py-24 py-12">
+      <SuperQuality />
+    </section>
+    <section className="sm:px-16 px-8 py-10">
+      <Services />
+    </section>
+    <section className="sm:px-16 px-8 sm:py-24 py-12">
+      <SpecialOffer />
+    </section>
+    <section className="bg-pale-blue sm:px-16 px-8 sm:py-24 py-12">
+      <CustomerReviews />
+    </section>
+    <section className="sm:px-16 px-8 sm:py-32 py-16 w-full">
+      <Subscribe />
+    </section>
+    <section className="bg-black text-gray-50 sm:px-16 px-8 sm:pt-24 pt-12 pb-8">
+      <Footer />
+    </section>
+  </main>
+);
+
+export default App;
